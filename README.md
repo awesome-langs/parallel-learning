@@ -1,43 +1,43 @@
 # parallel-learning
 Programs with the same functionality written in 40 popular programming languages
 
-Python
-Java
-Go
-JavaScript
-C++
-TypeScript
-Ruby
-C#
-Rust
-Scala
-Kotlin
-Swift
-Dart
-Groovy
-Lua
-Perl
-Elixir
-Haskell
-OCaml
-Erlang
-Clojure
-Julia
-F#
-EmacsLisp
-R
-CoffeeScript
-Matlab
-VisualBasic
-F*
-CommonLisp
-Haxe
-Scheme
-Raku
-Crystal
-Nim
-Elm
-D
-Racket
-PureScript
-Pascal
+- C#
+- C++
+- Clojure
+- CoffeeScript
+- CommonLisp
+- Crystal
+- D
+- Dart
+- Elixir
+- Elm
+- EmacsLisp
+- Erlang
+- F#
+- F*
+- Go
+- Groovy
+- Hack
+- Haskell
+- Haxe
+- Java
+- JavaScript
+- Julia
+- Kotlin
+- Lua
+- Matlab
+- Nim
+- OCaml
+- Perl
+- PureScript
+- Python
+- R
+- Racket
+- Raku
+- Ruby
+- Rust
+- Scala
+- Scheme
+- Swift
+- TypeScript
+- VisualBasic
