@@ -1,5 +1,5 @@
 # parallel-learning
-Programs with the same functionality written in 40 popular programming languages
+Programs with the same functionality written in 37 popular programming languages
 
 - C#
 - C++
@@ -14,7 +14,6 @@ Programs with the same functionality written in 40 popular programming languages
 - EmacsLisp
 - Erlang
 - F#
-- F*
 - Go
 - Groovy
 - Hack
