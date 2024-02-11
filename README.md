@@ -1,5 +1,5 @@
 # parallel-learning
-Programs with the same functionality written in 37 popular programming languages
+Programs with the same functionality written in 38 popular programming languages
 
 - C#
 - C++
@@ -24,13 +24,12 @@ Programs with the same functionality written in 37 popular programming languages
 - Julia
 - Kotlin
 - Lua
-- Matlab
 - Nim
 - OCaml
 - Perl
+- PHP
 - PureScript
 - Python
-- R
 - Racket
 - Raku
 - Ruby
