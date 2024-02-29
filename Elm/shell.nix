@@ -4,4 +4,7 @@ let
 in
 pkgs.mkShell {
   packages = [ pkgs.elmPackages.elm pkgs.nodejs_21 pkgs.corepack_21 ];
+  shellHook = ''
+    npm config set strict-ssl false
+  '';
 }

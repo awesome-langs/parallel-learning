@@ -1,0 +1,1 @@
+idris2 -p contrib -c src/example.idr -o example && ./build/exec/example

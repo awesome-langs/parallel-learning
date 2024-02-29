@@ -1,11 +1,82 @@
-(defun hello ()
-    (format t "Hello World!~%"))
+(load (sb-ext:posix-getenv "ASDF"))
+(asdf:load-system :parse-float)
 
-(defun my-function (my-list)
-    (reduce (lambda (a b) (concatenate 'string b a b ))
-        (mapcar (lambda (x) (write-to-string (* 3 x)))
-            (remove-if-not (lambda (x) (= 0 (mod x 2))) my-list))            
-        :initial-value ""))
+(defun my-string-to-int (s)
+    (parse-integer s))
 
-(hello)
-(format t (my-function '(1 2 3 4 5)))
+(defun my-string-to-double (s)
+    (parse-float:parse-float s))
+
+(defun my-int-to-string (i)
+    (write-to-string i))
+
+(defun my-double-to-string (d)
+    (format nil "~,6f" d))
+
+(defun my-bool-to-string (b)
+    (if b "true" "false"))
+
+(defun my-int-to-nullable (i)
+    (if (> i 0) i
+        (if (< i 0) (- i)
+            nil)))
+
+(defun my-nullable-to-int (i)
+    (if i i -1))
+
+(defun my-list-sorted (lst)
+    (sort lst #'string<))
+
+(defun my-list-sorted-by-length (lst)
+    (sort lst #'< :key #'length))
+
+(defun my-list-filter (lst)
+    (remove-if-not (lambda (x) (= (mod x 3) 0)) lst))
+
+(defun my-list-map (lst)
+    (mapcar (lambda (x) (* x x)) lst))
+
+(defun my-list-reduce (lst)
+    (reduce (lambda (acc x) (+ (* acc 10) x)) lst :initial-value 0))
+
+(defun my-list-operations (lst)
+    (reduce (lambda (acc x) (+ (* acc 10) x))
+        (mapcar (lambda (x) (* x x))
+            (remove-if-not (lambda (x) (= (mod x 3) 0)) lst))
+        :initial-value 0))
+
+(defun my-list-to-dict (lst)
+    (mapcar (lambda (x) (cons x (* x x))) lst))
+
+(defun my-dict-to-list (dict)
+    (mapcar (lambda (x) (+ (car x) (cdr x))) (sort dict #'< :key #'car)))
+
+(defun my-print-string (s)
+    (format t "~a~%" s))
+
+(defun my-print-string-list (lst)
+    (dolist (x lst)
+        (format t "~a " x))
+    (format t "~%"))
+
+(defun my-print-int-list (lst)
+    (my-print-string-list (mapcar #'my-int-to-string lst)))
+
+(defun my-print-dict (dict)
+    (dolist (x dict)
+        (format t "~a->~a " (my-int-to-string (car x)) (my-int-to-string (cdr x))))
+    (format t "~%"))
+
+(my-print-string "Hello, World!")
+(my-print-string (my-int-to-string (my-string-to-int "123")))
+(my-print-string (my-double-to-string (my-string-to-double "123.456")))
+(my-print-string (my-bool-to-string nil))
+(my-print-string (my-int-to-string (my-nullable-to-int (my-int-to-nullable 18))))
+(my-print-string (my-int-to-string (my-nullable-to-int (my-int-to-nullable -15))))
+(my-print-string (my-int-to-string (my-nullable-to-int (my-int-to-nullable 0))))
+(my-print-string-list (my-list-sorted '("e" "dddd" "ccccc" "bb" "aaa")))
+(my-print-string-list (my-list-sorted-by-length '("e" "dddd" "ccccc" "bb" "aaa")))
+(my-print-string (my-int-to-string (my-list-reduce (my-list-map (my-list-filter '(3 12 5 8 9 15 7 17 21 11))))))
+(my-print-string (my-int-to-string (my-list-operations '(3 12 5 8 9 15 7 17 21 11))))
+(my-print-dict (my-list-to-dict '(3 1 4 2 5 9 8 6 7 0)))
+(my-print-int-list (my-dict-to-list '((3 . 9) (1 . 1) (4 . 16) (2 . 4) (5 . 25) (9 . 81) (8 . 64) (6 . 36) (7 . 49) (0 . 0))))

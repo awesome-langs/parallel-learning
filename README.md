@@ -1,6 +1,15 @@
 # parallel-learning
 Programs with the same functionality written in 38 popular programming languages
 
+Learn about:
+- Basic I/O
+- Basic Data Types(integer, float, boolean, string)
+- Basic Collections(list, dictionary)
+- Type Conversions
+- List Operations(filter, map, reduce)
+- Nullable/Optional
+
+Languages:
 - C#
 - C++
 - Clojure

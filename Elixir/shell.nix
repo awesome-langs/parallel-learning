@@ -4,4 +4,7 @@ let
 in
 pkgs.mkShell {
   packages = [ pkgs.elixir ];
+  shellHook = ''
+    export ELIXIR_ERL_OPTIONS="+fnu"
+  '';
 }

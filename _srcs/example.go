@@ -1,0 +1,1 @@
+../Go/src/example.go

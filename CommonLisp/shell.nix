@@ -3,5 +3,9 @@ let
   pkgs = import nixpkgs { config = {}; overlays = []; };
 in
 pkgs.mkShell {
-  packages = [ pkgs.sbcl ];
+  packages = [ 
+    (pkgs.sbcl.withPackages (
+      ps: with ps; [ parse-float ]
+    )) 
+  ];
 }
