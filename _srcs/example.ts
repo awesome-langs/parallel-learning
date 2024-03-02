@@ -1,1 +1,0 @@
-../TypeScript/src/example.ts

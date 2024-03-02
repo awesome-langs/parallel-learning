@@ -63,7 +63,7 @@ function myListToDict(lst) {
 }
 
 function myDictToList(dict) {
-    return Array.from(dict).sort((a, b) => a[0] - b[0]).map(x => x[0] + x[1]);
+    return [...dict].sort((a, b) => a[0] - b[0]).map(x => x[0] + x[1]);
 }
 
 function myPrintString(s) {
