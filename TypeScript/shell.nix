@@ -3,5 +3,5 @@ let
   pkgs = import nixpkgs { config = {}; overlays = []; };
 in
 pkgs.mkShell {
-  packages = [ pkgs.typescript pkgs.nodejs_21 pkgs.corepack_21 ];
+  packages = [ pkgs.typescript pkgs.nodejs_21 pkgs.corepack_21 pkgs.cacert ];
 }

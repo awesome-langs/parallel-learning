@@ -44,11 +44,18 @@
             (seq-filter (lambda (x) (= (% x 3) 0)) lst)) 0))
 
 (defun my-list-to-dict (lst)
-    (seq-map (lambda (x) (cons x (* x x))) lst))
+    (let ((tmp (make-hash-table)))
+        (seq-doseq (x lst) 
+            (puthash x (* x x) tmp))
+        tmp))
 
-(defun my-dict-to-list (lst)
-    (seq-map (lambda (x) (+ (car x) (cdr x))) 
-        (seq-sort-by #'cdr #'< lst)))
+(defun my-dict-to-list (dict)
+    (let ((tmp '()))
+        (maphash (lambda (k v)
+            (setf tmp (push (cons k v) tmp))) dict)
+        (seq-map (lambda (x) (+ (car x) (cdr x)))
+            (seq-sort-by #'car #'< tmp))
+        ))
 
 (defun my-print-string (s)
     (princ s)
@@ -62,9 +69,9 @@
 (defun my-print-int-list (lst)
     (my-print-string-list (seq-map (lambda (x) (my-int-to-string x)) lst)))
 
-(defun my-print-dict (lst)
-    (seq-doseq (x lst)
-        (princ (concat (my-int-to-string (car x)) "->" (my-int-to-string (cdr x)) " ")))
+(defun my-print-dict (dict)
+    (maphash (lambda (k v)
+        (princ (concat (my-int-to-string k) "->" (my-int-to-string v) " "))) dict)
     (princ "\n"))
 
 (my-print-string "Hello, World!")
@@ -79,4 +86,5 @@
 (my-print-string (my-int-to-string (my-list-reduce (my-list-map (my-list-filter '(3 12 5 8 9 15 7 17 21 11))))))
 (my-print-string (my-int-to-string (my-list-operations '(3 12 5 8 9 15 7 17 21 11))))
 (my-print-dict (my-list-to-dict '(3 1 4 2 5 9 8 6 7 0)))
-(my-print-int-list (my-dict-to-list '((3 . 9) (1 . 1) (4 . 16) (2 . 4) (5 . 25) (9 . 81) (8 . 64) (6 . 36) (7 . 49) (0 . 0))))
+(my-print-int-list (my-dict-to-list #s(hash-table data (3 9 1 1 4 16 2 4 5 25 9 81 8 64 6 36 7 49 0 0))))
+

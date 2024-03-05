@@ -1,1 +1,1 @@
-spago install && spago build && spago run
+pnpm install && ./node_modules/.bin/spago run -m Example
