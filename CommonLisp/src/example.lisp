@@ -1,6 +1,5 @@
 (load (sb-ext:posix-getenv "ASDF"))
 (asdf:load-system :parse-float)
-(asdf:load-system :alexandria)
 
 (defun my-string-to-int (s)
     (parse-integer s))
@@ -47,26 +46,25 @@
         :initial-value 0))
 
 (defun my-list-to-dict (lst)
-    (alexandria:alist-hash-table (mapcar (lambda (x) (cons x (* x x))) lst)))
+    (mapcar (lambda (x) (cons x (* x x))) lst))
 
 (defun my-dict-to-list (dict)
-    (mapcar (lambda (x) (+ (car x) (cdr x))) 
-        (sort (alexandria:hash-table-alist dict) #'< :key #'car)))
+    (mapcar (lambda (x) (+ (car x) (cdr x))) (sort dict #'< :key #'car)))
 
 (defun my-print-string (s)
     (format t "~a~%" s))
 
 (defun my-print-string-list (lst)
     (dolist (x lst)
-        (format t "~a" (concatenate 'string x " ")))
+        (format t "~a " x))
     (format t "~%"))
 
 (defun my-print-int-list (lst)
     (my-print-string-list (mapcar #'my-int-to-string lst)))
 
 (defun my-print-dict (dict)
-    (dolist (x (alexandria:hash-table-alist dict))
-        (format t "~a" (concatenate 'string (my-int-to-string (car x)) "->" (my-int-to-string (cdr x)) " ")))
+    (dolist (x dict)
+        (format t "~a->~a " (my-int-to-string (car x)) (my-int-to-string (cdr x))))
     (format t "~%"))
 
 (my-print-string "Hello, World!")
@@ -81,4 +79,4 @@
 (my-print-string (my-int-to-string (my-list-reduce (my-list-map (my-list-filter '(3 12 5 8 9 15 7 17 21 11))))))
 (my-print-string (my-int-to-string (my-list-operations '(3 12 5 8 9 15 7 17 21 11))))
 (my-print-dict (my-list-to-dict '(3 1 4 2 5 9 8 6 7 0)))
-(my-print-int-list (my-dict-to-list (alexandria:alist-hash-table '((3 . 9) (1 . 1) (4 . 16) (2 . 4) (5 . 25) (9 . 81) (8 . 64) (6 . 36) (7 . 49) (0 . 0)))))
+(my-print-int-list (my-dict-to-list '((3 . 9) (1 . 1) (4 . 16) (2 . 4) (5 . 25) (9 . 81) (8 . 64) (6 . 36) (7 . 49) (0 . 0))))

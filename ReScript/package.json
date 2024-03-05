@@ -1,7 +1,7 @@
 {
-	"dependencies": {
-		"@rescript/core": "^0.7.0",
+	"type": "module",
+	"devDependencies": {
 		"rescript": "^11.0.1",
-		"rescript-nodejs": "^16.0.0"
+		"@rescript/core": "^0.7.0"
 	}
 }
