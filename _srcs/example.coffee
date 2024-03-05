@@ -1,1 +1,0 @@
-../CoffeeScript/src/example.coffee

@@ -1,1 +1,0 @@
-../Idris/src/example.idr

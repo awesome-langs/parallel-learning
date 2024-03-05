@@ -1,1 +1,0 @@
-../PureScript/src/example.purs

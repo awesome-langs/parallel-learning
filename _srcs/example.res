@@ -1,1 +1,0 @@
-../ReScript/src/example.res

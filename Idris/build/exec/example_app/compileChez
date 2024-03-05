@@ -1,1 +1,0 @@
-(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/home/nixos/parallel-learning/Idris/build/exec/example_app/example.ss"))
