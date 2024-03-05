@@ -67,6 +67,7 @@ function my_list_map(lst)
         tmp[i] = v * v
     end
     return tmp
+    -- 
 end
 
 function my_list_reduce(lst)

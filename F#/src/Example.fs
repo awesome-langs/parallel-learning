@@ -78,3 +78,11 @@ myPrintString (myIntToString (myListReduce (myListMap (myListFilter [3; 12; 5; 8
 myPrintString (myIntToString (myListOperations [3; 12; 5; 8; 9; 15; 7; 17; 21; 11]))
 myPrintDict (myListToDict [3; 1; 4; 2; 5; 9; 8; 6; 7; 0])
 myPrintIntList (myDictToList (Map [3, 9; 1, 1; 4, 16; 2, 4; 5, 25; 9, 81; 8, 64; 6, 36; 7, 49; 0, 0]))
+
+let myPrintListofOptionDict (dict: Map<int, int> option list): unit =
+    for x in dict do
+        match x with
+        | Some d -> myPrintDict d
+        | None -> printfn "None"
+
+myPrintListofOptionDict [Some (myListToDict [3; 1; 4; 2; 5; 9; 8; 6; 7; 0]); None; Some (myListToDict [3; 1; 4; 2; 5; 9; 8; 6; 7; 0])]

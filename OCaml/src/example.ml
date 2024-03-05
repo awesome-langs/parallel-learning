@@ -43,11 +43,12 @@ let my_list_operations (lst : int list) : int =
         |> List.map (fun x -> x * x)
         |> List.fold_left (fun acc x -> acc * 10 + x) 0
 
-let my_list_to_dict (lst : int list) : (int * int) list =
-    List.map (fun x -> (x, x * x)) lst
+let my_list_to_dict (lst : int list) : (int, int) Hashtbl.t =
+    Hashtbl.of_seq (List.to_seq (List.map (fun x -> (x, x * x)) lst))
 
-let my_dict_to_list (dict : (int * int) list) : int list =
-    dict |> List.sort (fun (k1, _) (k2, _) -> compare k1 k2)
+let my_dict_to_list (dict : (int, int) Hashtbl.t) : int list =
+    dict |> Hashtbl.to_seq |> List.of_seq
+        |> List.sort (fun (k1, _) (k2, _) -> compare k1 k2)
         |> List.map (fun (k, v) -> k + v)
 
 let my_print_string (s : string) : unit =
@@ -60,8 +61,8 @@ let my_print_string_list (lst : string list) : unit =
 let my_print_int_list (lst : int list) : unit =
     lst |> List.map my_int_to_string |> my_print_string_list
 
-let my_print_dict (dict : (int * int) list) : unit =
-    List.iter (fun (k, v) -> print_string (my_int_to_string k ^ "->" ^ my_int_to_string v ^ " ")) dict;
+let my_print_dict (dict : (int, int) Hashtbl.t) : unit =
+    Hashtbl.iter (fun k v -> print_string (my_int_to_string k ^ "->" ^ my_int_to_string v ^ " ")) dict;
     print_endline ""
 
 let () = 
@@ -77,4 +78,4 @@ let () =
     my_print_string (my_int_to_string (my_list_reduce (my_list_map (my_list_filter [3; 12; 5; 8; 9; 15; 7; 17; 21; 11]))));
     my_print_string (my_int_to_string (my_list_operations [3; 12; 5; 8; 9; 15; 7; 17; 21; 11]));
     my_print_dict (my_list_to_dict [3; 1; 4; 2; 5; 9; 8; 6; 7; 0]);
-    my_print_int_list (my_dict_to_list [(3, 9); (1, 1); (4, 16); (2, 4); (5, 25); (9, 81); (8, 64); (6, 36); (7, 49); (0, 0)])
+    my_print_int_list (my_dict_to_list (Hashtbl.of_seq (List.to_seq[(3, 9); (1, 1); (4, 16); (2, 4); (5, 25); (9, 81); (8, 64); (6, 36); (7, 49); (0, 0)])))
