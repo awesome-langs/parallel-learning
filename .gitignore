@@ -27,6 +27,7 @@ Reason/example.ml
 Rust/example
 Scala/**.class
 Scala/**.tasty
+StandardML/example
 Swift/example
 TypeScript/dist
 TypeScript/node_modules

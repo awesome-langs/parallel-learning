@@ -1,12 +1,11 @@
 (load (sb-ext:posix-getenv "ASDF"))
-(asdf:load-system :parse-float)
 (asdf:load-system :alexandria)
 
 (defun my-string-to-int (s)
-    (parse-integer s))
+    (read-from-string s))
 
 (defun my-string-to-double (s)
-    (parse-float:parse-float s))
+    (read-from-string s))
 
 (defun my-int-to-string (i)
     (write-to-string i))
