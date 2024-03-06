@@ -30,7 +30,7 @@ fn my_int_to_nullable(i: i32) -> Option<i32> {
     }
 }
 
-fn my_nullable_to_int(i: Option<i32>) -> i32 {
+fn my_nullable_to_int(i: &Option<i32>) -> i32 {
     match i {
         Some(x) => x,
         None => -1,
