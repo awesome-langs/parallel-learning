@@ -1,5 +1,8 @@
-# parallel-learning
-Programs with the same functionality written in 38 popular programming languages
+# Parallel Learning
+Programs with the same functionality written in popular programming languages
+
+# Language Ranking
+
 
 Learn about:
 - Basic I/O
