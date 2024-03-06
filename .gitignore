@@ -23,7 +23,7 @@ PureScript/node_modules
 PureScript/output
 ReScript/lib
 ReScript/node_modules
-Reason/example.ml
+ReasonML/example.ml
 Rust/example
 Scala/**.class
 Scala/**.tasty

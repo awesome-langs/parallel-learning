@@ -64,8 +64,8 @@
     (my-print-string-list (mapcar #'my-int-to-string lst)))
 
 (defun my-print-dict (dict)
-    (dolist (x (alexandria:hash-table-alist dict))
-        (format t "~a" (concatenate 'string (my-int-to-string (car x)) "->" (my-int-to-string (cdr x)) " ")))
+    (maphash (lambda (k v)
+        (format t "~a" (concatenate 'string (my-int-to-string k) "->" (my-int-to-string v) " "))) dict)
     (format t "~%"))
 
 (my-print-string "Hello, World!")
