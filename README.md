@@ -13,8 +13,8 @@ Learn about:
 
 | Language | Originated in | Current Release |
 |----------|----------|----------|
+| C++ | 1980 |
 | Common Lisp | 1984 |
-| C++ | 1985 |
 | Emacs Lisp | 1985 |
 | Erlang | 1986 |
 | Perl | 1987 |
