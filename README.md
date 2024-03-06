@@ -15,7 +15,6 @@ Learn about:
 |----------|----------|----------|
 | C++ | 1980 |
 | Common Lisp | 1984 |
-| Emacs Lisp | 1985 |
 | Erlang | 1986 |
 | Perl | 1987 |
 | Haskell | 1990 |
