@@ -1,4 +1,5 @@
 using Lambda;
+import de.polygonal.Printf;
 
 class Example {
     public static function myStringToInt(s: String): Int {
@@ -14,7 +15,7 @@ class Example {
     }
 
     public static function myDoubleToString(d: Float): String {
-        return Std.string(d);
+        return Printf.format("%.6f", [d]);
     }
 
     public static function myBoolToString(b: Bool): String {

@@ -12,6 +12,7 @@ F#/bin
 F#/obj
 Haskell/out
 Haskell/example
+Haxe/.haxelib
 Haxe/example.n
 Idris/build
 Java/**.class
